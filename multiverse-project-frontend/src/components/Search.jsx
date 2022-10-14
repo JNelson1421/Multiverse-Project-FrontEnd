@@ -6,44 +6,45 @@ import Card from './CardComponent';
 function Search() {
     const [loading, setLoading] = useState(false);
     const [players, setPlayers] = useState([]);
+    const [totalPlayers, setTotalPlayers] = useState(0);
     const [searchTitle, setSearchTitle] = useState("");
 
     useEffect(() => {
+        console.log("SEARCHTITLE", searchTitle)
         const loadPlayers = async () => {
             setLoading(true);
             const response = await axios.get(
-                `http://lookup-service-prod.mlb.com/json/named.search_player_all.bam?sport_code=%27mlb%27&active_sw=%27Y%27&name_part=%27contreras%25%27`
+                `http://lookup-service-prod.mlb.com/json/named.search_player_all.bam?sport_code=%27mlb%27&active_sw=%27Y%27&name_part=%27${searchTitle}%25%27`
             );
             console.log(response.data.search_player_all)
             setPlayers(response.data.search_player_all.queryResults.row);
+            setTotalPlayers(response.data.search_player_all.queryResults.totalSize);
             setLoading(false);
         };
 
         loadPlayers();
-    }, []);
+    }, [searchTitle]);
 
     return (
         <div className="container">
             <input className="search_input"
                 type="text"
                 placeholder="Search by Last Name..."
-                onChange={(e) => {
-                    // setSearchTitle(e.target.value)
+                onBlur={(e) => {
+                    setSearchTitle(e.target.value)
                 }}
             />
-            {/* <button className="btn btn-info" type='button' onClick={(e) => this.search(e)}>Search</button> */}
+            <button className="btn btn-info" type='button'>Search</button> 
             <div className='cardContainer'>
-                {loading ? (
-                    <h4>Loading ...</h4>
+                {totalPlayers == 1 ? ( 
+                                    <Card key={players.player_id} player={players} /> 
                 ) : (
-                    players
-                    // .sort((a,b) => a.name_display_first_last > b.name_display_first_last ? 1 : -1)
-                    .map((item) => {
-                        console.log('item:', item);
-                        return (   
-                                    <Card key={item.player_id} player={item} /> 
-                        );
-                    })
+                        players
+                        .map((item) => {
+                            return (   
+                                        <Card key={item.player_id} player={item} /> 
+                            );
+                        })
                 )}
             </div>
         </div>
