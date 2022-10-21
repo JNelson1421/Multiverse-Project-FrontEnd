@@ -6,104 +6,104 @@ const Card = (props) => {
     const navigate = useNavigate()
 
     const player = props.player
-    console.log("Team = ", player.team_full)
-    var teamImageSrc = ""
+    //console.log("Team = ", player.team_full)
+    var teamImageSrc = "images/teamlogos/"
     switch(player.team_full) {
         case "Arizona Diamondbacks":
-        teamImageSrc = "ArizonaDiamondbacks.jpg"
+        teamImageSrc += "ArizonaDiamondbacks.jpg"
         break;
         case "Atlanta Braves":
-        teamImageSrc = "AtlantaBraves.jpg"
+        teamImageSrc += "AtlantaBraves.jpg"
         break;
         case "Baltimore Orioles":
-        teamImageSrc = "BaltimoreOrioles.jpg"
+        teamImageSrc += "BaltimoreOrioles.jpg"
         break;
-        case "Boston Redsox":
-        teamImageSrc = "BostonRedSox.jpg"
+        case "Boston Red Sox":
+        teamImageSrc += "BostonRedSox.jpg"
         break;
         case "Chicago Cubs":
-        teamImageSrc = "ChicagoCubs.jpg"
+        teamImageSrc += "ChicagoCubs.jpg"
         break;
         case "Chicago White Sox":
-        teamImageSrc = "ChicagoWhiteSox.jpg"
+        teamImageSrc += "ChicagoWhiteSox.jpg"
         break;
         case "Cincinnati Reds":
-        teamImageSrc = "CincinnatiReds.jpg"
+        teamImageSrc += "CincinnatiReds.jpg"
         break;
-        case "Cleveland Guardians":
-        teamImageSrc = "ClevelandGuardians.jpg"
+        case "Cleveland Indians":
+        teamImageSrc += "ClevelandGuardians.jpg"
         break;
         case "Colorado Rockies":
-        teamImageSrc = "ColoradoRockies.jpg"
+        teamImageSrc += "ColoradoRockies.jpg"
         break;
         case "Detroit Tigers":
-        teamImageSrc = "DetroitTigers.jpg"
+        teamImageSrc += "DetroitTigers.jpg"
         break;
         case "Houston Astros":
-        teamImageSrc = "HoustonAstros.jpg"
+        teamImageSrc += "HoustonAstros.jpg"
         break;
         case "Kansas City Royals":
-        teamImageSrc = "KansasCityRoyals.jpg"
+        teamImageSrc += "KansasCityRoyals.jpg"
         break;
         case "Los Angeles Angels":
-        teamImageSrc = "LosAngelesAngels.jpg"
+        teamImageSrc += "LosAngelesAngels.jpg"
         break;
         case "Los Angeles Dodgers":
-        teamImageSrc = "LosAngelesDodgers.jpg"
+        teamImageSrc += "LosAngelesDodgers.jpg"
         break;
         case "Miami Marlins":
-        teamImageSrc = "MiamiMarlins.jpg"
+        teamImageSrc += "MiamiMarlins.jpg"
         break;
         case "Milwaukee Brewers":
-        teamImageSrc = "MilwaukeeBrewers.jpg"
+        teamImageSrc += "MilwaukeeBrewers.jpg"
         break;
         case "Minnesota Twins":
-        teamImageSrc = "MinnesotaTwins.jpg"
+        teamImageSrc += "MinnesotaTwins.jpg"
         break;
         case "New York Mets":
-        teamImageSrc = "NewYorkMets.jpg"
+        teamImageSrc += "NewYorkMets.jpg"
         break;
         case "New York Yankees":
-        teamImageSrc = "NewYorkYankees.jpg"
+        teamImageSrc += "NewYorkYankees.jpg"
         break;
         case "Oakland Athletics":
-        teamImageSrc = "OaklandAthletics.jpg"
+        teamImageSrc += "OaklandAthletics.jpg"
         break;
         case "Philadelphia Phillies":
-        teamImageSrc = "PhiladelphiaPhillies.jpg"
+        teamImageSrc += "PhiladelphiaPhillies.jpg"
         break;
         case "Pittsburgh Pirates":
-        teamImageSrc = "PittsburghPirates.jpg"
+        teamImageSrc += "PittsburghPirates.jpg"
         break;
         case "San Diego Padres":
-        teamImageSrc = "SanDiegoPadres.jpg"
+        teamImageSrc += "SanDiegoPadres.jpg"
         break;
         case "San Francisco Giants":
-        teamImageSrc = "SanFranciscoGiants.jpg"
+        teamImageSrc += "SanFranciscoGiants.jpg"
         break;
         case "Seattle Mariners":
-        teamImageSrc = "SeattleMariners.jpg"
+        teamImageSrc += "SeattleMariners.jpg"
         break;
         case "St. Louis Cardinals":
-        teamImageSrc = "St.LouisCardinals.jpg"
+        teamImageSrc += "St.LouisCardinals.jpg"
         break;
         case "Tampa Bay Rays":
-        teamImageSrc = "TampaBayRays.jpg"
+        teamImageSrc += "TampaBayRays.jpg"
         break;
         case "Texas Rangers":
-        teamImageSrc = "TexasRangers.jpg"
+        teamImageSrc += "TexasRangers.jpg"
         break;
         case "Toronto Blue Jays":
-        teamImageSrc = "TorontoBlueJays.jpg"
+        teamImageSrc += "TorontoBlueJays.jpg"
         break;
         case "Washington Nationals":
-        teamImageSrc = "WashingtonNationals.jpg"
+        teamImageSrc += "WashingtonNationals.jpg"
         break;
 }
     return(
         <div className='card' onClick={() => navigate(`/view/${player.player_id}`)} id={player.player_id}>
             <div className='teamLogo'>
-                {/* <img src={teamImageSrc} /> */}
+                <img src={teamImageSrc} /> 
             </div>
             <div className='name'>
                 <h2>
