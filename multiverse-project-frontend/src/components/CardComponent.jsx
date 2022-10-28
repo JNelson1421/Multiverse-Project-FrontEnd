@@ -1,12 +1,13 @@
 import '../css/Home.css'
 import { useNavigate } from "react-router-dom";
+import React, { useContext } from "react";
+import { ThemeContext } from './ThemeProvider';
 
 const Card = (props) => {
 
     const navigate = useNavigate()
-
+    const { theme, toggleTheme } = useContext(ThemeContext);
     const player = props.player
-    //console.log("Team = ", player.team_full)
     var teamImageSrc = "images/teamlogos/"
     switch(player.team_full) {
         case "Arizona Diamondbacks":
@@ -101,7 +102,7 @@ const Card = (props) => {
         break;
 }
     return(
-        <div className='card' onClick={() => navigate(`/view/${player.player_id}`)} id={player.player_id}>
+        <div className={theme == "dark" ? "card dark" : "card"} onClick={() => navigate(`/view/${player.player_id}`)} id={player.player_id}>
             <div className='teamLogo'>
                 <img src={teamImageSrc} /> 
             </div>

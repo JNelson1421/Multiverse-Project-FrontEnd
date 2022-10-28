@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import '../css/Home.css';
 import axios from "axios";
+import CarouselHome from "./CarouselHome";
 
 function Home () {
     const [atBatLeaders, setAtBatLeaders] = useState([]);
@@ -28,6 +29,8 @@ function Home () {
 
     return (
         <div className="container">
+            <CarouselHome />
+            <h1 className="battingleaders">Batting Leaders</h1>
             <div className='statContainer'>
                 <div className='statCard'>
                     <h1>At Bat Leaders</h1>
@@ -59,5 +62,6 @@ function Home () {
         </div>
     );
 };
+
 
 export default Home;

@@ -8,7 +8,7 @@
 }
 
 .statContainer{
-    margin-top: 5rem;
+    margin-top: 5px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -26,4 +26,14 @@
     margin: 2rem;
     box-shadow: 5px 5px 5px gray;
     cursor: pointer;
+}
+
+.battingleaders {
+    margin-top: 75px;
+}
+
+@media(max-width: 760px){
+    .statCard {
+        width: 300px;
+    }
 }

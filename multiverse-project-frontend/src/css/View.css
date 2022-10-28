@@ -1,0 +1,31 @@
+.player_container {
+    margin-top: 50px;
+}
+
+.player_info {
+    border-top: 1px solid grey;
+    padding-top: 50px;
+}
+
+.player_img {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.player_title {
+    border-bottom: 1px solid grey;
+    padding-bottom: 50px;
+}
+
+.name_nick {
+    font-style: italic;
+}
+
+.name_first > h1 {
+    font-weight: 700;
+}
+
+.dark {
+    background-color: #333 !important;
+}
+

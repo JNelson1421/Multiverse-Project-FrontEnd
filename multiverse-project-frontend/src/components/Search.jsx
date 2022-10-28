@@ -4,22 +4,18 @@ import axios from "axios";
 import Card from './CardComponent';
 
 function Search() {
-    const [loading, setLoading] = useState(false);
     const [players, setPlayers] = useState([]);
     const [totalPlayers, setTotalPlayers] = useState(0);
     const [searchTitle, setSearchTitle] = useState("");
 
     useEffect(() => {
-        console.log("SEARCHTITLE", searchTitle)
         const loadPlayers = async () => {
-            setLoading(true);
             const response = await axios.get(
                 `http://lookup-service-prod.mlb.com/json/named.search_player_all.bam?sport_code=%27mlb%27&active_sw=%27Y%27&name_part=%27${searchTitle}%25%27`
             );
             console.log(response.data.search_player_all)
             setPlayers(response.data.search_player_all.queryResults.row);
             setTotalPlayers(response.data.search_player_all.queryResults.totalSize);
-            setLoading(false);
         };
 
         loadPlayers();
